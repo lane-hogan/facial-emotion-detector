@@ -13,6 +13,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
 
 
 ''' ### Read csv data '''
@@ -96,3 +99,14 @@ print(f"Prediction: {prediction}")
 
 tree.plot_tree(clf)
 plt.show()
+
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.1, random_state=30)
+
+clf.fit(X_train, Y_train)
+predicted = clf.predict(X_test)
+
+print("\n", predicted)
+print(len(predicted))
+print("DecisionTrees's Accuracy: ", metrics.accuracy_score(Y_test, predicted))
+
+
