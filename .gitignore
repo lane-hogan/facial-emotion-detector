@@ -130,4 +130,4 @@ dmypy.json
 
 # Dataset for project
 dataset/
-.DS_STORE
+.DS_Store
